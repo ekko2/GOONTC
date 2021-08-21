@@ -24,7 +24,7 @@
 # -105 <= nums[i] <= 105
 
 class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    def threeSum(self, nums):
         def twoSum(nums, start, target, ans):
             lst = nums[start:]
             i = 0
