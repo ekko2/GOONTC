@@ -23,3 +23,25 @@
 # 0 <= nums.length <= 3000
 # -105 <= nums[i] <= 105
 
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        def twoSum(nums, start, target, ans):
+            lst = nums[start:]
+            i = 0
+            j = len(lst) - 1
+            while i < j:
+                if lst[i] + lst[j] > target:
+                    j -= 1
+                elif lst[i] + lst[j] < target:
+                    i += 1
+                else:
+                    ans.add((nums[start - 1], lst[i], lst[j]))
+                    i += 1
+
+        nums.sort()
+        ans = set()
+        for i in range(len(nums)):
+            if i > 0 and nums[i - 1] == nums[i]:
+                continue
+            twoSum(nums, i + 1, -nums[i], ans)
+        return ans
