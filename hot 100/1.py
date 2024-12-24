@@ -23,3 +23,10 @@ class Solution_2():
             if nums[i] in dic:
                 return [dic[nums[i]],i]
             dic[target - nums[i]] = i
+
+        dic = {}
+        for i in len(nums):
+            if nums[i] not in dic:
+                dic[target-nums[i]] = i
+            else:
+                return [dic[nums[i]], i]
